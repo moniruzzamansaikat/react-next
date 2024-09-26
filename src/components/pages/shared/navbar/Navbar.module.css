@@ -1,0 +1,221 @@
+.navbar {
+  background-color: #ffffff;
+  padding: 0.5rem 2rem;
+  color: #333333;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo a:hover {
+  opacity: 0.7;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navItem a {
+  color: #262626;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+}
+
+.navItem a:hover {
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
+.navItem.active a {
+  font-weight: 600;
+  color: #000000;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.navItem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown li {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown a {
+  color: #262626;
+  font-size: 0.875rem;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #f2f2f2;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  width: 24px;
+}
+
+.bar {
+  width: 100%;
+  height: 2px;
+  background-color: #262626;
+  transition: 0.3s ease;
+}
+
+.hamburger:hover .bar {
+  background-color: #000000;
+}
+
+.loginButton {
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.loginButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .navLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .navLinks.open {
+    max-height: 500px;
+  }
+
+  .navItem {
+    padding: 1rem 2rem;
+    text-align: left;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navItem:hover .dropdown {
+    max-height: 250px;
+  }
+
+  .dropdown li {
+    padding: 0.5rem 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .logo a {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navLinks {
+    width: 100%;
+    padding: 1rem 0;
+    flex-direction: column;
+  }
+
+  .navItem {
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+
+  .dropdown {
+    max-height: none;
+    position: static;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navItem:hover .dropdown {
+    max-height: none;
+  }
+
+  .hamburger {
+    align-self: flex-end;
+  }
+}
