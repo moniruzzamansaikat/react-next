@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <NextTopLoader  />
+        <NextTopLoader showSpinner={false} />
         <Navbar />
         {children}
       </body>
